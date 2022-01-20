@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get("test_email", [EmailController::class, 'sendEmail']);
+Route::get("anuluj-subskrypcje/{token}", [EmailController::class, 'angryBirds']);
+Route::post("anuluj/{token}", [EmailController::class, 'removeSubscription']);

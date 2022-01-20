@@ -16,9 +16,12 @@ class NewsletterEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    
+    protected $userData;
+
+    public function __construct($user)
     {
-        //
+        $this->userData = $user;
     }
 
     /**
@@ -28,6 +31,7 @@ class NewsletterEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.newsletter_template');
+        $userData = $this->userData;
+        return $this->view('emails.newsletter_template', compact(['userData']));
     }
 }
