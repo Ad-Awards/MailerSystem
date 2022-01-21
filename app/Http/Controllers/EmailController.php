@@ -16,7 +16,7 @@ class EmailController extends Controller
 
     public function testEmail()
     {
-        $email_address = 'nean12.bg@gmail.com';
+        $email_address = 'i.kruczek@adawards.pl';
         $data = [
             'last_send_data' => date('Y-m-d H:i:s'),
             'first_name' => '',
@@ -25,8 +25,12 @@ class EmailController extends Controller
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus minima totam accusantium. Impedit sequi similique at consequatur eveniet vitae ab hic, dolore amet dolor dignissimos rem exercitationem porro saepe nam?',
             'token' => Str::random(32)
         ];
-        $email = new NewsletterEmail($data);
-        Mail::to($email_address)->send($email);
+        try {
+            $email = new NewsletterEmail($data);
+            Mail::to($email_address)->send($email);
+        } catch (\Exception $e) {
+            print_r($e);
+        }
     }
 
     public function sendEmail()

@@ -22,6 +22,7 @@ class NewsletterEmail extends Mailable
     public function __construct($user)
     {
         $this->userData = $user;
+        $this->subject('U nas po nowemu! Zobacz co w Odziej się!');
     }
 
     /**

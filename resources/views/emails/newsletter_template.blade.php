@@ -1,30 +1,21 @@
-<div style="max-width: 75%; text-align: center; padding: 20px 30px; border: 1px solid #000; margin: auto">
-    
-    {{-- LOGO --}}
-    <img src="{{ asset('assets/img/logo.png') }}" alt="" width="128">
-    {{-- LOGO --}}
-
-    <br><br>
-    <hr><br>
-
+<div style="max-width: 75%; text-align: left; padding: 20px 30px; border: 0px solid #000; margin: auto">
     {{-- TREŚĆ MAILA --}}
-    <div style="text-align: justify;">
-        <h3>Lorem ipsum</h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero expedita soluta optio suscipit, iusto quod
-        voluptas fuga minima sunt deleniti est natus rem delectus obcaecati praesentium accusamus, aliquam dolore
-        aperiam!
+    <div style="text-align: left;">
+        <h3>Hej</h3>
+        W  sklepie Odziej się odświeżyliśmy to i owo. 👈<br>
+        Zawsze było wygodnie, ale teraz jest naprawdę na propsie. 👌<br>
+        Dzielimy się radością   5% i 10% rabatu czeka. 🚀<br>
         <br>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloremque dolorem expedita modi iste vel
-        impedit voluptates magni corrupti dolor, eaque soluta dolore saepe. Suscipit voluptatibus amet soluta optio at.
+        Użyj przy zamówieniu kodu ______<br>
         <br>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde inventore explicabo aliquid voluptatum
-        architecto! Itaque impedit eum quod nisi natus accusantium esse atque magni, consectetur tenetur pariatur quo
-        asperiores. Quidem.
+        Wbijaj i Odziej się! 👉 <a href="https://www.odziejsie.pl">https://www.odziejsie.pl</a><br><br>
+        <a href="https://www.odziejsie.pl"><img src="{{ asset('assets/img/odziejsie.jpeg') }}" alt="" width="640"></a><br><br>
+        ➤ <a href="https://www.odziejsie.pl">https://www.odziejsie.pl</a>
+        <br><br>
     </div>
     {{-- TREŚĆ MAILA --}}
-
-    <br><br>
-    <hr><br><br>
+    <br>
+    <small>*Jeżeli chcesz wypisać się z naszego Newslettera wystarczy kliknąć poniższy przycisk.</small><br><br>
     <a href="{{ url('anuluj-subskrypcje/' . $userData['token']) }}" style="background: darkblue; 
                 color: #fff; 
                 padding: 10px 20px; 
