@@ -13,6 +13,22 @@ use Rap2hpoutre\FastExcel\FastExcel;
 
 class EmailController extends Controller
 {
+
+    public function testEmail()
+    {
+        $email_address = 'nean12.bg@gmail.com';
+        $data = [
+            'last_send_data' => date('Y-m-d H:i:s'),
+            'first_name' => '',
+            'last_name' => '',
+            'email' => $email_address,
+            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus minima totam accusantium. Impedit sequi similique at consequatur eveniet vitae ab hic, dolore amet dolor dignissimos rem exercitationem porro saepe nam?',
+            'token' => Str::random(32)
+        ];
+        $email = new NewsletterEmail($data);
+        Mail::to($email_address)->send($email);
+    }
+
     public function sendEmail()
     {
         $emails_address = [];
@@ -68,9 +84,9 @@ class EmailController extends Controller
     }
 
     public function fetchCSV(string $filename)
-    {   
+    {
         try {
-            return (new FastExcel)->import('csv/'.$filename);
+            return (new FastExcel)->import('csv/' . $filename);
         } catch (\Exception $e) {
             dd($e);
         }
