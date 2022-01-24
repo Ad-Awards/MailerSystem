@@ -49,7 +49,7 @@ class ProcessNewsletter implements ShouldQueue
 
         try {
 
-            $getUser = DB::table('newsletters')->where('email', $this->email_address)->first();
+            $getUser = DB::connection('mysql2')->table('newsletters')->where('email', $this->email_address)->first();
             if (!empty($getUser) && $getUser->active == 0) {
                 Log::warning('['.$this->id.'] User with e-mail ' . $this->email_address . ' refuse newsletter');
                 return;
@@ -65,10 +65,10 @@ class ProcessNewsletter implements ShouldQueue
             ];
 
             if (empty($getUser)) {
-                DB::table('newsletters')->insert($data);
+                DB::connection('mysql2')->table('newsletters')->insert($data);
                 $logInfo = 'insert new record';
             } else {
-                DB::table('newsletters')->where('email', $this->email_address)->update($data);
+                DB::connection('mysql2')->table('newsletters')->where('email', $this->email_address)->update($data);
                 $logInfo = 'updated record';
             }
 
