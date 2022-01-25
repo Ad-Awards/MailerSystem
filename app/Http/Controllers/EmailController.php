@@ -37,10 +37,9 @@ class EmailController extends Controller
     {
         $emails_address = [];
         // plik CSV z 270 tys. rekordów (przy 50 000 się wywala skrypt (timeout max 60s))
-        foreach ($this->fetchCSV('emails270k.csv') as $key => $value) {
+        foreach ($this->fetchCSV('emails_test.csv') as $key => $value) {
             array_push($emails_address, $value['email']);
             // podzielenie CSVki
-            if ($key >= 9) break;
         }
         foreach ($emails_address as $key => $value) {
             try {
