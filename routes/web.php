@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get("test_email", [EmailController::class, 'testEmail']);
 Route::get("make_jobs", [EmailController::class, 'sendEmail']);
+Route::get("add_emails", [EmailController::class, 'insertMailsToDatabase']);
 Route::get("anuluj-subskrypcje/{token}", [EmailController::class, 'angryBirds']);
 Route::post("anuluj/{token}", [EmailController::class, 'removeSubscription']);
