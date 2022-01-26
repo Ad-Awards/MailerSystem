@@ -50,6 +50,28 @@ class EmailController extends Controller
         }
     }
 
+    public function insertMailsToDatabase()
+    {
+        foreach ($this->fetchCSV('emails_1.csv') as $key => $value) {
+            $email_address = substr($value['email'], 0, -1);
+            $getUser = DB::connection('mysql2')->table('newsletters')->where('email', $email_address)->first();
+            dd($getUser);
+            $data = [
+                'last_send_data' => date('Y-m-d H:i:s'),
+                'first_name' => '',
+                'last_name' => '',
+                'email' => $email_address,
+                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus minima totam accusantium. Impedit sequi similique at consequatur eveniet vitae ab hic, dolore amet dolor dignissimos rem exercitationem porro saepe nam?',
+                'token' => Str::random(32)
+            ];
+
+            if (empty($getUser)) {
+                DB::connection('mysql2')->table('newsletters')->insert($data);
+                dd($data);
+            }
+        }
+    }
+
     public function angryBirds(string $token)
     {
         $data = [
